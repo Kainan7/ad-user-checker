@@ -7,7 +7,6 @@ Este projeto simula um servidor Active Directory (AD) e fornece uma API web usan
 - Consultar usuários por login (sAMAccountName)
 - Verificar se estão bloqueados ou não
 - Exibir e-mail, setor, cargo e empresa
-- Ideal para testes antes de conectar com um AD real
 
 > ⚠️ Este projeto **não se conecta ao AD real** por enquanto – ele usa um ambiente simulado com `ldap3`.
 
