@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta AD - Grupo Fan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Consulta de Usuário AD</h2>
+        <input type="text" id="usuario" placeholder="Digite o login do usuário (ex: joao.silva)" />
+        <button onclick="consultarUsuario()">Consultar</button>
+
+        <div class="resultado" id="resultado" style="display: none;">
+            <div id="infoCampos"></div>
+
+            <div id="acoes" style="margin-top: 15px; display: none;">
+                <button onclick="editarCampos()">Editar Informações</button>
+                <button onclick="exibirCampoSenha()">Alterar Senha</button>
+            </div>
+
+            <div id="editarBox" style="display:none; margin-top:10px;"></div>
+            <div id="senhaBox" style="display:none; margin-top:10px;"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

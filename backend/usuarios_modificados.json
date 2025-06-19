@@ -1,0 +1,19 @@
+{
+    "joao.silva": {
+        "senha": "novasenha",
+        "name": "Jo\u00e3o Goku",
+        "email": "joao.silva@grupofan.com.br",
+        "company": "Fanlog",
+        "department": "TI",
+        "title": "Analista de Suporte",
+        "locked": true
+    },
+    "maria.souza": {
+        "name": "Maria Pereira",
+        "email": "maria.souza@grupofan.com.br",
+        "company": "Fan Capital",
+        "department": "Financeiro",
+        "title": "Coordenadora Financeira",
+        "locked": true
+    }
+}

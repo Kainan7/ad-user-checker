@@ -1,0 +1,99 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+    text-align: center;
+    color: #006EE9;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #006EE9;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0055bb;
+}
+.resultado {
+    margin-top: 20px;
+    background: #f0f4f9;
+    padding: 15px;
+    border-radius: 6px;
+}
+.resultado button {
+    padding: 10px;
+    font-weight: bold;
+}
+.tag-bloqueado {
+    color: white;
+    background: red;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.tag-ativo {
+    color: white;
+    background: green;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.btn-verde {
+    background-color: green;
+    color: white;
+}
+.btn-verde:hover {
+    background-color: darkgreen;
+}
+.btn-vermelho {
+    background-color: crimson;
+    color: white;
+}
+.btn-vermelho:hover {
+    background-color: darkred;
+}
+.btn-cinza {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* Links de ação para bloquear/desbloquear */
+.link-acao {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.link-bloquear {
+    color: crimson;
+}
+.link-desbloquear {
+    color: #006EE9;
+}
