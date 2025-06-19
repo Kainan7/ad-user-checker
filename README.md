@@ -1,14 +1,24 @@
-# ad-user-checker
+# AD User Checker
 
-# 🧠 AD User Checker – Simulador de Active Directory com Flask
+Sistema web para consulta e gerenciamento de usuários do Active Directory (AD) utilizando Python, Flask e LDAP3.
 
-Este projeto simula um servidor Active Directory (AD) e fornece uma API web usando Flask, que permite:
+---
 
-- Consultar usuários por login (sAMAccountName)
-- Verificar se estão bloqueados ou não
-- Exibir e-mail, setor, cargo e empresa
+## 🧩 Funcionalidades
 
-> ⚠️ Este projeto **não se conecta ao AD real** por enquanto – ele usa um ambiente simulado com `ldap3`.
+- Consulta de usuários do AD por nome
+- Visualização de:
+  - Nome
+  - E-mail
+  - Empresa
+  - Setor
+  - Cargo
+  - Status (Ativo/Bloqueado)
+- Edição de informações do usuário
+- Alteração de senha
+- Bloqueio e desbloqueio de contas
+- Interface 100% integrada com backend via API REST
+- Simulação local com `ldap3` (modo de teste)
 
 ---
 
@@ -16,21 +26,87 @@ Este projeto simula um servidor Active Directory (AD) e fornece uma API web usan
 
 - Python 3.11+
 - Flask
-- ldap3 (modo MOCK_SYNC – simulação local)
-- Estrutura em `backend/` com API REST
+- Flask-CORS
+- LDAP3
+- HTML + CSS + JavaScript
 
 ---
 
-## 🧩 Estrutura
+## 🛠️ Instalação e execução
+
+1. Clone o repositório:
 
 ```bash
+git clone https://github.com/Kainan7/ad-user-checker.git
+cd ad-user-checker
+```
+
+2. Crie e ative o ambiente virtual:
+
+```bash
+python -m venv venv
+venv\Scripts\activate  # Windows
+```
+
+3. Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Inicie o backend simulado:
+
+```bash
+cd backend
+python app.py
+```
+
+5. Abra o frontend:
+
+```bash
+cd ../frontend
+Abra o arquivo index.html no navegador
+```
+
+---
+
+## 🧪 Modo de Teste
+
+O servidor AD simulado é carregado com dois usuários:
+
+- `joao.silva`
+- `maria.souza`
+
+Eles podem ser alterados via interface ou diretamente no `usuarios_modificados.json`.
+
+---
+
+## 🔐 Observações
+
+- Este projeto é uma simulação. Para uso com AD real, configure `config.py` com os dados do domínio da empresa.
+- Para integração com Active Directory real, será necessário um usuário com permissões administrativas e uma rede com acesso ao servidor LDAP da empresa.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
 ad-user-checker/
 ├── backend/
-│   ├── app.py         # Servidor Flask
-│   ├── fake_ad.py     # Simulador de AD com usuários de teste
-│   ├── ldap_utils.py  # Função que consulta os dados
-│   ├── config.py      # (Não usado agora – para AD real depois)
-├── requirements.txt   # Dependências
-├── README.md          # Este arquivo
-├── frontend/          # (ainda em construção)
+│   ├── app.py
+│   ├── fake_ad.py
+│   ├── ldap_utils.py
+│   └── usuarios_modificados.json
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── requirements.txt
+└── README.md
+```
 
+---
+
+## 📄 Licença
+
+Projeto desenvolvido para fins acadêmicos e profissionais de infraestrutura/suporte interno. Uso livre com créditos.
