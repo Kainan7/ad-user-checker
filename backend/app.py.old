@@ -1,15 +1,12 @@
-from flask import Flask, request, jsonify, send_from_directory
+
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from ldap_utils import get_user_info
-#import fake_ad
+import fake_ad
 import json
 import os
 
-# Caminho absoluto para o diretório base
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
-
-app = Flask(__name__, static_folder=FRONTEND_DIR)
+app = Flask(__name__, static_folder='../frontend')
 CORS(app)
 
 @app.route('/')
@@ -20,7 +17,7 @@ def serve_index():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
-MODIFIED_FILE = os.path.join(os.path.dirname(__file__), "usuarios_modificados.json")
+MODIFIED_FILE = "usuarios_modificados.json"
 
 
 def save_modification(username, updates):
@@ -44,18 +41,21 @@ def save_modification(username, updates):
 @app.route("/api/user/<username>", methods=["GET"])
 def get_user(username):
     info = get_user_info(username)
+    
     if not info:
         return jsonify({"error": "Usuário não encontrado"}), 404
-
+    
+    #verifica se existem alterações salvas
     if os.path.exists(MODIFIED_FILE):
         with open(MODIFIED_FILE, "r") as f:
             try:
                 data = json.load(f)
                 if username in data:
                     info.update(data[username])
+                    
             except:
                 pass
-
+            
     return jsonify(info)
 
 @app.route("/api/user/update", methods=["POST"])
@@ -72,6 +72,7 @@ def update_user():
     save_modification(username, updates)
     return jsonify({"message": "Usuário atualizado com sucesso (simulado)"}), 200
 
+
 @app.route("/api/user/password", methods=["POST"])
 def update_password():
     content = request.json
@@ -79,6 +80,7 @@ def update_password():
     new_password = content.get("new_password")
     save_modification(username, {"senha": new_password})
     return jsonify({"message": "Senha atualizada com sucesso (simulado)"}), 200
+
 
 @app.route("/api/user/unlock", methods=["POST"])
 def unlock_user():
@@ -90,4 +92,4 @@ def unlock_user():
 
 if __name__ == "__main__":
     print("✅ Servidor AD simulado carregado com sucesso.")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True)

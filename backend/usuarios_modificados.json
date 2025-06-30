@@ -15,5 +15,13 @@
         "department": "Financeiro",
         "title": "Coordenadora Financeira",
         "locked": true
+    },
+    "klysman": {
+        "locked": true,
+        "name": "Klysman Pessoa",
+        "email": "klysman.gomes@outlook.com",
+        "company": "",
+        "department": "",
+        "title": ""
     }
 }

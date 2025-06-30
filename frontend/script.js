@@ -19,7 +19,7 @@ async function consultarUsuario() {
     }
 
     try {
-        const res = await fetch(`http://localhost:5000/api/user/${username}`);
+        const res = await fetch(`http://192.168.2.120:5000/api/user/${username}`);
         const data = await res.json();
 
         if (res.ok) {
@@ -92,7 +92,7 @@ function confirmarEdicao() {
     dadosUsuario.department = document.getElementById("editSetor").value;
     dadosUsuario.title = document.getElementById("editCargo").value;
 
-    fetch("http://localhost:5000/api/user/update", {
+    fetch("http://192.168.2.120:5000/api/user/update", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: document.getElementById("usuario").value, ...dadosUsuario })
@@ -130,7 +130,7 @@ function exibirCampoSenha() {
 function confirmarSenha() {
     const senha = document.getElementById("novaSenha").value;
 
-    fetch("http://localhost:5000/api/user/password", {
+    fetch("http://192.168.2.120:5000/api/user/password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: document.getElementById("usuario").value, new_password: senha })
@@ -154,7 +154,7 @@ function alternarBloqueio() {
     const locked = dadosUsuario.locked;
     const action = locked ? "unlock" : "lock";
 
-    fetch("http://localhost:5000/api/user/unlock", {
+    fetch("http://192.168.2.120:5000/api/user/unlock", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: document.getElementById("usuario").value, action })
